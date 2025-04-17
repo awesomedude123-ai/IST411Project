@@ -42,6 +42,10 @@ import ClassDetails from './classRelated/ClassDetails';
 import ShowClasses from './classRelated/ShowClasses';
 import AccountMenu from '../../components/AccountMenu';
 
+import AddClub from './clubRelated/AddClub';
+import ShowClub from './clubRelated/ShowClub';
+import ClubDetails from './clubRelated/ClubDetails';
+
 const AdminDashboard = () => {
     const [open, setOpen] = useState(false);
     const toggleDrawer = () => {
@@ -90,7 +94,7 @@ const AdminDashboard = () => {
                     </List>
                 </Drawer>
                 <Box component="main" sx={styles.boxStyled}>
-                    <Toolbar />
+                <Toolbar />
                     <Routes>
                         <Route path="/" element={<AdminHomePage />} />
                         <Route path='*' element={<Navigate to="/" />} />
@@ -119,6 +123,12 @@ const AdminDashboard = () => {
                         <Route path="/Admin/classes/class/:id" element={<ClassDetails />} />
                         <Route path="/Admin/class/addstudents/:id" element={<AddStudent situation="Class" />} />
 
+                        
+                        {/* Clubs */}
+                        <Route path="/Admin/clubs" element={<ShowClub />} />
+                        <Route path="/Admin/addclub" element={<AddClub />} />
+                        <Route path="/Admin/club/club/:id" element={<ClubDetails />} />
+                        
                         {/* Student */}
                         <Route path="/Admin/addstudents" element={<AddStudent situation="Student" />} />
                         <Route path="/Admin/students" element={<ShowStudents />} />

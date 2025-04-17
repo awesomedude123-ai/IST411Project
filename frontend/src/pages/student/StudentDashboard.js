@@ -76,6 +76,7 @@ const StudentDashboard = () => {
                         <Route path="/Student/dashboard" element={<StudentHomePage />} />
                         <Route path="/Student/profile" element={<StudentProfile />} />
 
+
                         <Route path="/Student/subjects" element={<StudentSubjects />} />
                         <Route path="/Student/attendance" element={<ViewStdAttendance />} />
                         <Route path="/Student/complain" element={<StudentComplain />} />

@@ -43,6 +43,7 @@ export const getClassStudents = (id) => async (dispatch) => {
 }
 
 export const getClassDetails = (id, address) => async (dispatch) => {
+    console.log(id);
     dispatch(getRequest());
 
     try {
