@@ -39,14 +39,14 @@ const ShowClasses = () => {
   const [message, setMessage] = useState("");
 
   const deleteHandler = (deleteID, address) => {
-    console.log(deleteID);
-    console.log(address);
-    setMessage("Sorry the delete function has been disabled for now.")
-    setShowPopup(true)
-    // dispatch(deleteUser(deleteID, address))
-    //   .then(() => {
-    //     dispatch(getAllSclasses(adminID, "Sclass"));
-    //   })
+    //console.log(deleteID);
+    //console.log(address);
+    //setMessage("Sorry the delete function has been disabled for now.")
+    //setShowPopup(true)
+     dispatch(deleteUser(deleteID, address))
+       .then(() => {
+         dispatch(getAllClubs(adminID, "Club"));
+       })
   }
 
   const clubColumns = [
@@ -69,7 +69,7 @@ const ShowClasses = () => {
     ];
     return (
       <ButtonContainer>
-        <IconButton onClick={() => deleteHandler(row.id, "club")} color="secondary">
+        <IconButton onClick={() => deleteHandler(row.id, "DeleteClub")} color="secondary">
           <DeleteIcon color="error" />
         </IconButton>
         <BlueButton variant="contained"
@@ -87,7 +87,7 @@ const ShowClasses = () => {
     },
     {
       icon: <DeleteIcon color="error" />, name: 'Delete All Clubs',
-      action: () => deleteHandler(adminID, "club")
+      action: () => deleteHandler(adminID, "DeleteAllClubs")
     },
   ];
 

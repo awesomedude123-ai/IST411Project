@@ -51,9 +51,8 @@ const ClassDetails = () => {
         setShowPopup(true)
         // dispatch(deleteUser(deleteID, address))
         //     .then(() => {
-        //         dispatch(getClassStudents(classID));
         //         dispatch(resetSubjects())
-        //         dispatch(getSubjectList(classID, "ClassSubjects"))
+        //         dispatch(getSubjectList(classID, "club"))
         //     })
     }
 

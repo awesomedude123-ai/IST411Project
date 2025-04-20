@@ -37,10 +37,7 @@ const clubDelete = async (req,res) => {
             return res.send({message: "Club not found"});
         }
 
-        await Student.updateMany(
-            {clubs: req.params.id},
-            {$pull: {clubs: req.params.id}}
-        );
+        res.send(deletedClub);
     }catch(err){
         res.status(500).json(err)
     }
@@ -60,9 +57,22 @@ const getClub = async (req, res) => {
     }
 };
 
+const deleteAllClubs = async (req,res) => {
+    try{
+        const deleteClubs = await Club.deleteMany({ school: req.params.id})
+        if(!deletedClubs){
+            return res.send({message: "Clubs not deleted"})
+        }
+        res.send(deletedClubs)
+    }catch(err){
+        res.status(500).json(err);
+    }
+}
+
 module.exports = {
     clubCreate,
     clubDelete,
     getClub,
     getClubType,
+    deleteAllClubs,
 }

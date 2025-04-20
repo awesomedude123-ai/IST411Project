@@ -10,7 +10,8 @@ import {
     authError,
     getTypesSuccess,
     getFailed,
-    detailsSuccess
+    detailsSuccess,
+    getDeleteSuccess
 }from './clubSlice.js';
 
 
