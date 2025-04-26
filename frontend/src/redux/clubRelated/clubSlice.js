@@ -13,7 +13,7 @@ const initialState = {
     clubDetails:[],
 };
 
-const clubSlice = new createSlice({
+const clubSlice = createSlice({
     name: 'club',
     initialState,
     reducers: {

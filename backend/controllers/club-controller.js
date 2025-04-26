@@ -23,9 +23,20 @@ const clubCreate = async (req,res) => {
             type: req.body.type,
             school: req.body.adminID,
         });
-        const result = await club.save();
-        res.send(result);
-    }catch(err){
+        //adding club name check
+        const existingSclubByName = await Club.findOne({
+            name: req.body.name,
+            school: req.body.adminID
+        });
+
+        if (existingSclubByName) {
+            res.send({ message: 'Sorry this club name already exists' });
+        }
+        else {
+            const result = await club.save();
+            res.send(result);
+        }
+    } catch(err){
         res.send(500).json(err);
     }
 };

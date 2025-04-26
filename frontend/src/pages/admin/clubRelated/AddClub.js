@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, CircularProgress, Stack, TextField } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-//import { addStuff } from '../../../redux/clubRelated/clubHandle';
-//import { underControl } from '../../../redux/clubRelated/clubSlice';
-import { addStuff } from '../../../redux/userRelated/userHandle';
-import { underControl } from '../../../redux/userRelated/userSlice';
+import { addStuff } from '../../../redux/clubRelated/clubHandle';       //uncomented
+import { underControl } from '../../../redux/clubRelated/clubSlice';    //uncomented
+// import { addStuff } from '../../../redux/userRelated/userHandle';
+// import { underControl } from '../../../redux/userRelated/userSlice';
 
 import { BlueButton } from "../../../components/buttonStyles";
 import Popup from "../../../components/Popup";
@@ -19,8 +19,9 @@ const AddClass = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const userState = useSelector(state => state.user);
-    const { status, currentUser, response, error, tempDetails } = userState;
+    const clubState = useSelector(state => state.club); 
+    const { status, response, error, tempDetails } = clubState; 
+    const currentUser = useSelector(state => state.user.currentUser); //needed to grab current user
 
     const adminID = currentUser._id
     const address = "Club"
@@ -43,7 +44,7 @@ const AddClass = () => {
 
     useEffect(() => {
         if (status === 'added' && tempDetails) {
-            navigate("/Admin/club/club/" + tempDetails._id)
+            navigate("/Admin/club/club/" + tempDetails._id)     
             dispatch(underControl())
             setLoader(false)
         }

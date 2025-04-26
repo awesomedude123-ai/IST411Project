@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { getClubDetails} from "../../../redux/clubRelated/clubHandle";
+import { getClubDetails} from "../../../redux/clubRelated/clubHandle"; //getClassStudents is used here for classes
 import { deleteUser } from '../../../redux/userRelated/userHandle';
 import {
     Box, Container, Typography, Tab, IconButton
@@ -209,17 +209,17 @@ const ClassDetails = () => {
                 <Typography variant="h5" gutterBottom>
                     Club Type: {clubDetails.type}
                 </Typography>
-
+                                                {/* getresponse && in classes */}
                 <GreenButton 
                     variant="contained"
-                    onClick={() => navigate("/Admin/addclub/")}
+                    onClick={() => navigate("/Admin/addclub/")}     // + add classID for classDetails
                 >
                     Add Clubs
                 </GreenButton>
-
+                                                {/* response && in classes */}
                 <BlueButton
                     variant="contained"
-                    onClick={() => navigate("/Admin/clubs/")}
+                    onClick={() => navigate("/Admin/clubs/")}     // + add classID for classDetails
                 >
                     View Clubs
                 </BlueButton>
@@ -237,12 +237,12 @@ const ClassDetails = () => {
                         <TabContext value={value}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <TabList onChange={handleChange} sx={{ position: 'fixed', width: '100%', bgcolor: 'background.paper', zIndex: 1 }}>
-                                    <Tab label="Details" value="1" />
+                                    <Tab label="Details" value="1" />       {/*tabs seen once you click view on a club*/}
                                 </TabList>
                             </Box>
                             <Container sx={{ marginTop: "3rem", marginBottom: "4rem" }}>
                                 <TabPanel value="1">
-                                    <ClubDetailsSection />
+                                    <ClubDetailsSection />  {/*what is seen under tabs once you click them*/}
                                 </TabPanel>
                             </Container>
                         </TabContext>
